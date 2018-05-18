@@ -1,0 +1,16 @@
+A:link { font-family: Verdana,Geneva; TEXT-DECORATION: none; color: #FFCC00 }
+A:visited { font-family: Verdana,Geneva; TEXT-DECORATION: none; color: #CC9900 }
+A:active { font-family: Verdana,Geneva; TEXT-DECORATION: none; color: #FFFF00 }
+A:hover { font-family: Verdana,Geneva; COLOR: #FFFF44; TEXT-DECORATION: none }
+body { font-family: Verdana,Geneva; font-size: 11px; background-color: black; color: white }
+input { font-family: Verdana,Geneva; font-size: 11px; }
+select { font-family: Verdana,Geneva; font-size: 11px; }
+textarea { font-family: Verdana,Geneva; font-size: 11px; }
+ul { font-family: Verdana,Geneva; font-size: 11px; }
+ol { font-family: Verdana,Geneva; font-size: 11px; }
+li { font-family: Verdana,Geneva; font-size: 11px; }
+.tiny { font-size: 9px; }
+.small { font-size: 11px; }
+.med { font-size: 13px; }
+.large { font-size: 15px; }
+.larger { font-size: 18px; }

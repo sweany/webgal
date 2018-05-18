@@ -1,0 +1,74 @@
+# main picture index
+#
+create table images (
+	num INTEGER NOT NULL PRIMARY KEY AUTO_INCREMENT,
+	path VARCHAR(255),
+	md5 VARCHAR(32),
+	filename VARCHAR(255),
+	taken INTEGER NOT NULL,
+	imported INTEGER NOT NULL,
+	views INTEGER NOT NULL
+);
+
+create index index_md5 on images (md5);
+create index index_filename on images (filename);
+create index index_taken on images (taken);
+create index index_imported on images (imported);
+
+#tag index
+create table tags (
+	num INTEGER NOT NULL PRIMARY KEY AUTO_INCREMENT,
+	image INTEGER NOT NULL,
+	tag VARCHAR(32)
+);
+create index index_tag on tags(tag);
+create index index_image on tags(image);
+
+create table exif (
+	num INTEGER NOT NULL PRIMARY KEY AUTO_INCREMENT,
+	image INTEGER NOT NULL,
+	name VARCHAR(32),
+	value VARCHAR(255)
+);
+create index index_image on exif(image);
+create index index_name on exif(name);
+
+
+#  "views" table schema
+create table views (
+	num INTEGER NOT NULL PRIMARY KEY AUTO_INCREMENT,
+	image INTEGER NOT NULL,
+	stamp INTEGER NOT NULL,
+	ipaddr VARCHAR(15),
+	useragent VARCHAR(255)
+);
+
+CREATE INDEX index_image ON views (image);
+CREATE INDEX index_stamp ON views (stamp);
+CREATE INDEX index_ipaddr ON views (ipaddr);
+
+# notifications table schema
+#create table notify (
+#	num INTEGER NOT NULL PRIMARY KEY AUTO_INCREMENT,
+# path VARCHAR(128) NOT NULL,
+# email VARCHAR(96) NOT NULL,
+#);
+#CREATE INDEX index_path ON notify (path);
+
+create table configuration (
+	num INTEGER NOT NULL PRIMARY KEY AUTO_INCREMENT,
+	name VARCHAR(32),
+	value VARCHAR(255)
+);
+create index index_name on configuration (name);
+
+
+create table comments (
+	num INTEGER NOT NULL PRIMARY KEY AUTO_INCREMENT,
+	image INTEGER NOT NULL,
+	timestamp INTEGER NOT NULL,
+	ipaddr VARCHAR(15),
+	handle VARCHAR(32),
+	comment text
+);
+CREATE INDEX index_image ON comments (image);
